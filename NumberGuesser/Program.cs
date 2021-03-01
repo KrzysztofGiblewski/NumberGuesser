@@ -7,15 +7,24 @@ namespace NumberGuesser
         static void Main(string[] args)
         {
             string imie;
-           imie= PobierzImie();
-            WyswietlTekst("Cześć "+imie);
+            string liczbaGracza;
+           // imie= PobierzImie();
+           // WyswietlTekst("Cześć "+imie);
             WyswietlTekst("a teraz wylosóje liczbę którą masz zgadnąć");
             int wylosowanaLiczba = Losoj();
-
-            WyswietlTekst("wylosowano");
             string liczba = wylosowanaLiczba.ToString();
-            WyswietlTekst(liczba);
-            WyswietlTekst($"kolejną {imie} zgadniesz ty");
+                  liczbaGracza= PobierzLiczbe();
+              while (liczbaGracza != liczba)
+               {
+                WyswietlTekst("No Nie Poszło");
+                return;
+               }
+              if(liczbaGracza==liczba)
+            {
+                WyswietlTekst("BRAWOOOOO");
+            }
+               
+
         }
 
         static void WyswietlTekst(string tekst)
@@ -33,8 +42,15 @@ namespace NumberGuesser
         static int Losoj()
         {
             Random random = new Random();
-            int wylosowana = random.Next(0, 10);
+            int wylosowana = random.Next(0, 1);
             return wylosowana;
+        }
+
+        static string PobierzLiczbe()
+        {
+            Console.WriteLine("podaj liczbę");
+            string liczbaGracza = Console.ReadLine();
+            return liczbaGracza;
         }
 
     }
