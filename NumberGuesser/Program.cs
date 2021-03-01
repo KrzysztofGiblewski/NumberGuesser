@@ -13,20 +13,21 @@ namespace NumberGuesser
             WyswietlTekst("a teraz wylosóje liczbę którą masz zgadnąć");
             int wylosowanaLiczba = Losoj();
             string liczba = wylosowanaLiczba.ToString();
-            liczbaGracza = "100"; // tak tymczasowo zeby nie byla pusta
+            liczbaGracza = PobierzLiczbe();
             while (liczbaGracza != liczba)
                {
                 WyswietlTekst("no nie poszło próbuj dalej");
                 liczbaGracza = PobierzLiczbe();
-                    if (liczbaGracza == liczba)
-                    {
-                        WyswietlTekst("BRAWOOOOO");
-                        break;
-                    }
+                    
                 continue;
             }
-             
+            if (liczbaGracza == liczba)
+            {
+                WyswietlTekst("BRAWOOOOO");
                
+            }
+
+
 
         }
 
