@@ -13,16 +13,19 @@ namespace NumberGuesser
             WyswietlTekst("a teraz wylosóje liczbę którą masz zgadnąć");
             int wylosowanaLiczba = Losoj();
             string liczba = wylosowanaLiczba.ToString();
-                  liczbaGracza= PobierzLiczbe();
-              while (liczbaGracza != liczba)
+            liczbaGracza = "100"; // tak tymczasowo zeby nie byla pusta
+            while (liczbaGracza != liczba)
                {
-                WyswietlTekst("No Nie Poszło");
-                return;
-               }
-              if(liczbaGracza==liczba)
-            {
-                WyswietlTekst("BRAWOOOOO");
+                WyswietlTekst("no nie poszło próbuj dalej");
+                liczbaGracza = PobierzLiczbe();
+                    if (liczbaGracza == liczba)
+                    {
+                        WyswietlTekst("BRAWOOOOO");
+                        break;
+                    }
+                continue;
             }
+             
                
 
         }
@@ -42,7 +45,7 @@ namespace NumberGuesser
         static int Losoj()
         {
             Random random = new Random();
-            int wylosowana = random.Next(0, 1);
+            int wylosowana = random.Next(0, 10);
             return wylosowana;
         }
 
