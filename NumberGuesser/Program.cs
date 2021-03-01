@@ -6,7 +6,14 @@ namespace NumberGuesser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Random random = new Random();
+
+            int wylosowana = random.Next(0, 10);
+            Console.WriteLine("wylosowano "+wylosowana);
+
+          
         }
+
+        
     }
 }
