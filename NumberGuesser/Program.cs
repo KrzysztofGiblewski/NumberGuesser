@@ -7,29 +7,23 @@ namespace NumberGuesser
         static void Main(string[] args)
         {
             string imie;
-            string liczbaGracza;
-           // imie= PobierzImie();
-           // WyswietlTekst("Cześć "+imie);
-            WyswietlTekst("a teraz wylosóje liczbę którą masz zgadnąć");
+            int liczbaGracza;
+            imie= PobierzImie();
+            WyswietlTekst("Cześć "+imie);
+            WyswietlTekst($"a teraz wylosóje liczbę którą masz zgadnąć a ty {imie} podaj swoją odpowiedź");
             int wylosowanaLiczba = Losoj();
-            string liczba = wylosowanaLiczba.ToString();
             liczbaGracza = PobierzLiczbe();
-            while (liczbaGracza != liczba)
-               {
-                WyswietlTekst("no nie poszło próbuj dalej");
-                liczbaGracza = PobierzLiczbe();
-                    
-                continue;
-            }
-            if (liczbaGracza == liczba)
+            while (wylosowanaLiczba != liczbaGracza)
             {
-                WyswietlTekst("BRAWOOOOO");
-               
+                if (wylosowanaLiczba > liczbaGracza)
+                    WyswietlTekst("no za mało próbuj dalej");
+                if (wylosowanaLiczba < liczbaGracza)
+                    WyswietlTekst("no za dużo próbuj dalej");
+                liczbaGracza = PobierzLiczbe();
             }
-
-
-
-        }
+            if (liczbaGracza == wylosowanaLiczba)
+                 WyswietlTekst("BRAWOOOOO trafiłeś :)");
+            }
 
         static void WyswietlTekst(string tekst)
         {
@@ -50,10 +44,13 @@ namespace NumberGuesser
             return wylosowana;
         }
 
-        static string PobierzLiczbe()
+        static int PobierzLiczbe()
         {
+            string liczbaGraczaString;
+            int liczbaGracza;
             Console.WriteLine("podaj liczbę");
-            string liczbaGracza = Console.ReadLine();
+            liczbaGraczaString = Console.ReadLine();
+            liczbaGracza = int.Parse(liczbaGraczaString);
             return liczbaGracza;
         }
 
