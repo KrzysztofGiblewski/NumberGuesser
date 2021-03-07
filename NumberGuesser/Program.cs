@@ -7,22 +7,24 @@ namespace NumberGuesser
         static void Main(string[] args)
         {
             string imie;
-            int liczbaGracza;
-            imie= PobierzImie();
-            WyswietlTekst("Cześć "+imie);
+            int liczbaGracza;       // liczba ktora podaje gracz
+            int wylosowanaLiczba;   // liczba wylosowana przez komputer
+            imie = PobierzImie();
+            WyswietlTekst($"Cześć {imie}");
             WyswietlTekst($"a teraz wylosóje liczbę którą masz zgadnąć a ty {imie} podaj swoją odpowiedź");
-            int wylosowanaLiczba = Losoj();
+            wylosowanaLiczba = Losoj();
             liczbaGracza = PobierzLiczbe();
-            while (wylosowanaLiczba != liczbaGracza)
+            
+            while (wylosowanaLiczba != liczbaGracza)            // dopuki nie trafiam 
             {
                 if (wylosowanaLiczba > liczbaGracza)
-                    WyswietlTekst("no za mało próbuj dalej");
+                    WyswietlTekst($"próbuj dalej twoja {liczbaGracza} to za mało");
                 if (wylosowanaLiczba < liczbaGracza)
-                    WyswietlTekst("no za dużo próbuj dalej");
+                    WyswietlTekst($"próbuj dalej twoja {liczbaGracza} to za dużo");
                 liczbaGracza = PobierzLiczbe();
             }
             if (liczbaGracza == wylosowanaLiczba)
-                 WyswietlTekst("BRAWOOOOO trafiłeś :)");
+                 WyswietlTekst($"BRAWOOOOO trafiłeś :) wylosowana liczba to {wylosowanaLiczba}");
             }
 
         static void WyswietlTekst(string tekst)
